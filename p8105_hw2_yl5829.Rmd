@@ -278,7 +278,18 @@ print(bakers_clean)
 ```
 
 ```{r}
+#clean `bakes` dataset
+bakes_clean <- bakes %>%
+  mutate(Baker = tolower(Baker),       
+         Series = tolower(Series),     
+         Episode = as.character(Episode)) %>%
+  rename(series = `Series`, 
+         episode =`Episode`,
+         baker = `Baker`,
+         signature_bake = `Signature Bake`,
+         show_stopper = `Show Stopper`)
 
+print(bakes_clean)
 ```
 
 
