@@ -191,3 +191,27 @@ gwynnda_wheel <- read_excel("data/202409 Trash Wheel Collection Data.xlsx", shee
 head(gwynnda_wheel)
 ```
 
+```{r}
+#clean Gwynnda Trash Wheel data
+gwynnda_wheel_clean <- gwynnda_wheel %>%
+    rename(
+    dumpster = `Dumpster`,
+    month = `Month`,
+    year = `Year`,
+    date = `Date`,
+    weight_tons = `Weight (tons)`,
+    volume_cubic_yards = `Volume (cubic yards)`,
+    plastic_bottles = `Plastic Bottles`,
+    polystyrene = `Polystyrene`,
+    cigarette_butts = `Cigarette Butts`,
+    plastic_bags = `Plastic Bags`,
+    wrappers = `Wrappers`,
+    homes_powered = `Homes Powered*`
+  ) %>%
+  # Remove rows that don't contain dumpster-specific data
+  filter(!is.na(dumpster))
+
+#loot at the cleaned data
+head(gwynnda_wheel_clean)
+```
+
