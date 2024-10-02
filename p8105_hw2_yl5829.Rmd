@@ -331,7 +331,6 @@ print(bakers_clean %>% filter(baker == "joanne"))
 ```
 
 
-
 ```{r}
 #check if unmatched bakers in `bakes`
 unmatched_bakes <- bakes_clean %>%
@@ -344,7 +343,17 @@ unmatched_results <- results_clean %>%
 print(unmatched_bakes)
 print(unmatched_results)
 ```
+the result looks good here has no unmatched data, the datasets are complete and correct.
 
+```{r}
+#merge bakers and results on baker and series
+bakers_results <- inner_join(bakers_clean, results_clean, by = c("baker", "series"))
 
+#merge bakers with bakes on baker, series, and episode
+final_dataset <- inner_join(bakers_results, bakes_clean, by = c("baker", "series", "episode"))
+
+#see the final dataset
+print(final_dataset)
+```
 
 
