@@ -46,6 +46,28 @@ The dataset contains 32 variables and it mainly focuses on the subway entrances 
 After clean there are 1868 rows and 19 columns in total. The data is tidy as each variable is stored in its own column, each observation is in its own row, and the dataset is organized for further analysis.
 
 ```{r}
+#the number of distinct stations
+distinct_stations <- nyc_clean %>%
+  distinct(station_name, line) %>%
+  nrow()
+
+#see the output
+distinct_stations
+```
+
+```{r}
+#the number of ADA compliant stations
+ada_compliant <- nyc_clean %>%
+  filter(ada == "YES") %>%
+  distinct(station_name, line) %>%
+  nrow()
+
+#see the output
+ada_compliant
+
+```
+
+```{r}
 
 ```
 
