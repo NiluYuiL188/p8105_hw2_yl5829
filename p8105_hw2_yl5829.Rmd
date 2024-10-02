@@ -371,11 +371,19 @@ The final dataset includes all relevant details from the bakers, bakes, and resu
 star_bakers <- final_dataset %>%
   filter(series %in% c(5, 6, 7, 8, 9, 10)) %>%
   filter(result == "STAR BAKER" | result == "WINNER") %>%
+  mutate(series = as.numeric(series)) %>%  
   select(series, episode, baker, result) %>%
-  arrange(series, episode)
+  arrange(series, episode)  %>%
+  mutate(series = as.character(series))
 
 #see the star baker or winner table
 print(star_bakers)
 ```
+
+In most of the cases, the final winner was expected based on their consistent performance throughout the season. For example: In Season 10, Steph was named Star Baker four times, indicating strong performance, although David ultimately became the Winner, which could be considered a bit of a surprise.
+In Season 9, Rahul was a dominant figure, being awarded Star Baker three times before winning the season. His consistent success made him a predictable winner.
+In Season 6, Nadiya’s victory was anticipated, as she was named Star Baker three times before winning.
+Again season 10 seems a bit surprise as Steph win Star Baker four times but lose the final title to David.
+Season 5 is also very suprised as Richard is season 5 claim Star Baker five times almost dominant the whole season, but Nancy won the final.
 
 
