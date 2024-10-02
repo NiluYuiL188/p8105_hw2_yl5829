@@ -316,5 +316,23 @@ print(unmatched_results)
 ```
 By checking it seems there are 8 unmatched results. However, after observation they are all from same person just that the inconsistent name conventions, jo stands for joannes (they show up in smae series and episode and has similar name short cut so we conlcude that).
 
+```{r}
+#remove any extra quote mark in the `baker` 
+bakes_clean <- bakes_clean %>%
+  mutate(baker = gsub('"', '', baker))  # Remove double quotes
+
+#replace jo with joanne in bakers_clean
+bakers_clean <- bakers_clean %>%
+  mutate(baker = ifelse(baker == "jo", "joanne", baker))
+
+#check if the replacement work
+print(bakers_clean %>% filter(baker == "joanne"))
+
+```
+
+
+
+
+
 
 
