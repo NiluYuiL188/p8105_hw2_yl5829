@@ -314,5 +314,7 @@ unmatched_results <- results_clean %>%
 print(unmatched_bakes)
 print(unmatched_results)
 ```
+By checking it seems there are 8 unmatched results. However, after observation they are all from same person just that the inconsistent name conventions, jo stands for joannes (they show up in smae series and episode and has similar name short cut so we conlcude that).
+
 
 
