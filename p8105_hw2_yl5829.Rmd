@@ -27,7 +27,7 @@ nyc_clean <- nyc %>%
   select(line, station_name, station_latitude, station_longitude, 
          route1, route2, route3, route4, route5, route6, route7, route8, route9, route10, route11, 
          entry, vending, entrance_type, ada) %>%
-  mutate(entry = ifelse(entry == "yes", TRUE, FALSE))
+  mutate(entry = ifelse(entry == "YES", TRUE, FALSE))
 
 #look at the cleaned data
 head(nyc_clean)
@@ -54,6 +54,7 @@ distinct_stations <- nyc_clean %>%
 #see the output
 distinct_stations
 ```
+There are 465 distinct stations.
 
 ```{r}
 #the number of ADA compliant stations
@@ -66,8 +67,15 @@ ada_compliant <- nyc_clean %>%
 ada_compliant
 
 ```
+There is no ADA compliant.
 
 ```{r}
+#proportion of station entrances / exits without vending allow entrance
+proportion <- nyc_clean %>%
+  filter(vending == "NO" & entry == TRUE) %>%
+  nrow() / nrow(nyc_clean)
 
+# Output the proportion
+proportion
 ```
-
+There is 0.0369 station entrances / exits without vending allow entrance
