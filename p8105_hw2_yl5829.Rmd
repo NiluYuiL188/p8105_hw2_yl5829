@@ -178,3 +178,10 @@ prof_wheel_clean <- prof_wheel %>%
 
 head(prof_wheel_clean)
 ```
+```{r}
+#add a new column to identify the data source
+prof_wheel_clean <- prof_wheel_clean %>%
+  mutate(source = "Professor Trash Wheel")
+prof_wheel_clean
+```
+
