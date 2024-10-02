@@ -264,30 +264,23 @@ head(results)
 ```
 
 ```{r}
-#convert the series to character
-bakers <- bakers %>%
-  mutate(Series = as.character(Series))
+#extract first names from Baker Name in bakers, and make data more reasonable to read
+bakers_clean <- bakers %>%
+  separate(`Baker Name`, into = c("First Name", "Last Name"), sep = " ", extra = "merge", fill = "right") %>%
+  mutate(baker = tolower(`First Name`)) %>%
+  rename(series = `Series`,
+         baker_age = `Baker Age`,
+         baker_occupation = `Baker Occupation`,
+         hometown = `Hometown`) %>% 
+  select(baker, series, baker_age, baker_occupation, hometown)
 
-bakes <- bakes %>%
-  mutate(Series = as.character(Series))
+print(bakers_clean)
+```
 
-results <- results %>%
-  mutate(series = as.character(series))
-
-
-#check if there are any bakers in bakes who are not in bakers
-unmatched1 <- bakes %>%
-  anti_join(bakers, by = c("Baker" = "Baker Name", "Series" = "Series"))
-
-#check if there are any bakers in results who are not in bakers
-unmatched2 <- results %>%
-  anti_join(bakers, by = c("baker" = "Baker Name", "series" = "Series"))
-
-#look at unmatched rows if they have
-head(unmatched1)
-head(unmatched2)
+```{r}
 
 ```
+
 
 
 
