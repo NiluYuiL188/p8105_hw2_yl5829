@@ -49,6 +49,7 @@ andrew,7,25,Aerospace engineer,"Derby / Holywood, County Down",7,1,STAR BAKER,Tr
 andrew,7,25,Aerospace engineer,"Derby / Holywood, County Down",8,2,IN,Da Vinci Inspired Geared Pies,Jousting Knights Marchpane
 andrew,7,25,Aerospace engineer,"Derby / Holywood, County Down",9,2,STAR BAKER,Cheesy Elephant Ears and Herby Treble Clefs,Philharmonic Fondants
 andrew,7,25,Aerospace engineer,"Derby / Holywood, County Down",10,1,Runner-up,Crunchy Caramel Cassis Crown,Family and Friends' Favourites Picnic
+annetha,1,30,Midwife,Essex,1,2,IN,Light Jamaican Black Cakewith Strawberries and Cream,"Red, White & Blue Chocolate Cake with Cigarellos, Fresh Fruit, and Cream"
 annetha,1,30,Midwife,Essex,2,7,OUT,Rose Petal Shortbread,Pink Swirl Macarons / Eclairs
 annetha,1,30,Midwife,Essex,3,NA,NA,NA,NA
 annetha,1,30,Midwife,Essex,4,NA,NA,NA,NA
@@ -465,14 +466,14 @@ jason,2,19,Civil Engineering Student,Croydon,5,7,OUT,Brown Down Chicken Pie,Plum
 jason,2,19,Civil Engineering Student,Croydon,6,NA,NA,NA,NA
 jason,2,19,Civil Engineering Student,Croydon,7,NA,NA,NA,NA
 jason,2,19,Civil Engineering Student,Croydon,8,NA,NA,NA,NA
-joanne,2,41,Housewife,"Ongar, Essex",1,11,IN,Chocolate Orange CupcakesOrange and Cardamom Cupcakes,Chocolate and Strawberry Cake
-joanne,2,41,Housewife,"Ongar, Essex",2,10,IN,"Caramelised Onion, Gruyere and Thyme Quiche",Raspberry and Mascarpone Tarts with Lemon and Almond PastryHoney and Almond Tarts with Sweetcrust
-joanne,2,41,Housewife,"Ongar, Essex",3,1,IN,"Stromboli flavored with Mozzarella, Ham, and Picante Pepper",Unknown
-joanne,2,41,Housewife,"Ongar, Essex",4,8,IN,Lavender Biscuits,Blueberry MacaronsCoconut MacaronsStrawberry Macarons
-joanne,2,41,Housewife,"Ongar, Essex",5,6,IN,Salmon and Asparagus Pie,Apple and Raspberry Meringue Pie
-joanne,2,41,Housewife,"Ongar, Essex",6,1,STAR BAKER,Rum and Raisin Baked Cheesecake,Limoncello and White Chocolate Croquembouche
-joanne,2,41,Housewife,"Ongar, Essex",7,3,IN,Raspberry & Strawberry Mousse Cake,Pain Aux RaisinChocolate TwistsBanana and Raisin Pastries
-joanne,2,41,Housewife,"Ongar, Essex",8,1,WINNER,Raspberry and Blueberry Mille Feuille,"Mini Victoria SandwichesRaspberry, White Chocolate and Pistachio Mini MeringuesMini Banoffee Pie with Banana Mousse"
+joanne,2,41,Housewife,"Ongar, Essex",1,11,IN,NA,NA
+joanne,2,41,Housewife,"Ongar, Essex",2,10,IN,NA,NA
+joanne,2,41,Housewife,"Ongar, Essex",3,1,IN,NA,NA
+joanne,2,41,Housewife,"Ongar, Essex",4,8,IN,NA,NA
+joanne,2,41,Housewife,"Ongar, Essex",5,6,IN,NA,NA
+joanne,2,41,Housewife,"Ongar, Essex",6,1,STAR BAKER,NA,NA
+joanne,2,41,Housewife,"Ongar, Essex",7,3,IN,NA,NA
+joanne,2,41,Housewife,"Ongar, Essex",8,1,WINNER,NA,NA
 john,3,22,Law student,Wigan,1,11,IN,"Toffee Apple, Orange & Cranberry",Hidden Pink Hearts Cake
 john,3,22,Law student,Wigan,2,1,STAR BAKER,"Coriander and Chilli RotisGarlic, Pomegranate and Potato Pitas","Fig, Walnut and Gruyere Bagels
 Blueberry and White Chocolate Bagels"
@@ -1164,4 +1165,12 @@ yasmin,2,43,Childminder,"West Kirby, The Wirral",5,5,IN,Family Fish Pie,Peach an
 yasmin,2,43,Childminder,"West Kirby, The Wirral",6,2,OUT,Baked Amaretto Cheesecake,Rose Croquembouche
 yasmin,2,43,Childminder,"West Kirby, The Wirral",7,NA,NA,NA,NA
 yasmin,2,43,Childminder,"West Kirby, The Wirral",8,NA,NA,NA,NA
-annetha,1,NA,NA,NA,1,NA,NA,Light Jamaican Black Cakewith Strawberries and Cream,"Red, White & Blue Chocolate Cake with Cigarellos, Fresh Fruit, and Cream"
+baker,series,NA,NA,NA,episode,technical,result,NA,NA
+jo,2,NA,NA,NA,1,NA,NA,Chocolate Orange CupcakesOrange and Cardamom Cupcakes,Chocolate and Strawberry Cake
+jo,2,NA,NA,NA,2,NA,NA,"Caramelised Onion, Gruyere and Thyme Quiche",Raspberry and Mascarpone Tarts with Lemon and Almond PastryHoney and Almond Tarts with Sweetcrust
+jo,2,NA,NA,NA,3,NA,NA,"Stromboli flavored with Mozzarella, Ham, and Picante Pepper",Unknown
+jo,2,NA,NA,NA,4,NA,NA,Lavender Biscuits,Blueberry MacaronsCoconut MacaronsStrawberry Macarons
+jo,2,NA,NA,NA,5,NA,NA,Salmon and Asparagus Pie,Apple and Raspberry Meringue Pie
+jo,2,NA,NA,NA,6,NA,NA,Rum and Raisin Baked Cheesecake,Limoncello and White Chocolate Croquembouche
+jo,2,NA,NA,NA,7,NA,NA,Raspberry & Strawberry Mousse Cake,Pain Aux RaisinChocolate TwistsBanana and Raisin Pastries
+jo,2,NA,NA,NA,8,NA,NA,Raspberry and Blueberry Mille Feuille,"Mini Victoria SandwichesRaspberry, White Chocolate and Pistachio Mini MeringuesMini Banoffee Pie with Banana Mousse"
