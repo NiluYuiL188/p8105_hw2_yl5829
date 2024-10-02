@@ -156,4 +156,25 @@ prof_wheel <- read_excel("data/202409 Trash Wheel Collection Data.xlsx", sheet =
 head(prof_wheel)
 ```
 
+```{r}
+#clean Professor Trash Wheel data
+prof_wheel_clean <- prof_wheel %>%
+  rename(
+    dumpster = `Dumpster`,
+    month = `Month`,
+    year = `Year`,
+    date = `Date`,
+    weight_tons = `Weight (tons)`,
+    volume_cubic_yards = `Volume (cubic yards)`,
+    plastic_bottles = `Plastic Bottles`,
+    polystyrene = `Polystyrene`,
+    cigarette_butts = `Cigarette Butts`,
+    glass_bottles = `Glass Bottles`,
+    plastic_bags = `Plastic Bags`,
+    wrappers = `Wrappers`,
+    homes_powered = `Homes Powered*`
+  ) %>%
+  filter(!is.na(dumpster))
 
+head(prof_wheel_clean)
+```
