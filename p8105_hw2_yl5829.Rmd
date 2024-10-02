@@ -33,3 +33,19 @@ nyc_clean <- nyc %>%
 head(nyc_clean)
 ```
 
+```{r}
+#check for column names
+colnames(nyc)
+#check for number of column
+ncol(nyc)
+#check for dimension of cleaned data
+dim(nyc_clean)
+```
+
+The dataset contains 32 variables and it mainly focuses on the subway entrances and exits in the NYC transit system. The variables included are line name, station name, geographic information (latitude and longitude), various routes served by the station (up to 11 routes), entry type, vending machine availability, some street, entrance type and geographic information (latitude, longitude, and location), and ADA compliance. After loading the data I use janitor::clean_names() function to convert all the variable to lower case and replaced spaces with underscores  to better performe next step. I next select relevant variables and transformed the entry column, which initially contained "YES" and "NO" values, into a logical variable (TRUE for "YES" and FALSE for "NO"). I also handled the missing values by specify any missing value to be NA in the data.
+After clean there are 1868 rows and 19 columns in total. The data is tidy as each variable is stored in its own column, each observation is in its own row, and the dataset is organized for further analysis.
+
+```{r}
+
+```
+
