@@ -149,3 +149,11 @@ mr_wheel_clean <- mr_wheel %>%
 head(mr_wheel_clean)
 ```
 
+```{r}
+#professor Trash Wheel data
+prof_wheel <- read_excel("data/202409 Trash Wheel Collection Data.xlsx", sheet = "Professor Trash Wheel")
+
+head(prof_wheel)
+```
+
+
