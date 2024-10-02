@@ -392,6 +392,13 @@ viewers <- read_csv("data/viewers.csv")
 ```
 
 ```{r}
+#clean and tidy the viewer data
+viewers_clean <- viewers %>%
+  janitor::clean_names()
+```
 
+```{r}
+#show the first 10 rows of the cleaned viewer dataset
+print(head(viewers_clean, 10))
 ```
 
