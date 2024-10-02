@@ -221,6 +221,9 @@ head(gwynnda_wheel_clean)
 ```
 
 ```{r}
-
+#add a new column to identify the data source (Mr. Trash Wheel)
+mr_wheel_clean <- mr_wheel_clean %>%
+  mutate(source = "Mr. Trash Wheel")
+head(mr_wheel_clean)
 ```
 
