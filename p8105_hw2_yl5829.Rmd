@@ -78,3 +78,22 @@ proportion <- nyc_clean %>%
 proportion
 ```
 There is 0.0369 station entrances / exits without vending allow entrance
+
+```{r}
+#convert all route columns to character type
+nyc_clean <- nyc_clean %>%
+  mutate(across(starts_with("route"), as.character))
+
+#reshape the data
+nyc_routes <- nyc_clean %>%
+  pivot_longer(cols = starts_with("route"), names_to = "route_number", values_to = "route_name") %>%
+  filter(!is.na(route_name))
+
+#look at the reshaped data
+head(nyc_routes)
+```
+
+```{r}
+
+```
+
