@@ -214,4 +214,13 @@ gwynnda_wheel_clean <- gwynnda_wheel %>%
 #loot at the cleaned data
 head(gwynnda_wheel_clean)
 ```
+```{r}
+#add a new column to identify the data source (Gwynnda Trash Wheel)
+gwynnda_wheel_clean <- gwynnda_wheel_clean %>% mutate(source = "Gwynnda Trash Wheel")
+head(gwynnda_wheel_clean)
+```
+
+```{r}
+
+```
 
