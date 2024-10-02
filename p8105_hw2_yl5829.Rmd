@@ -332,6 +332,18 @@ print(bakers_clean %>% filter(baker == "joanne"))
 
 
 
+```{r}
+#check if unmatched bakers in `bakes`
+unmatched_bakes <- bakes_clean %>%
+  anti_join(bakers_clean, by = c("baker", "series"))
+
+#check if unmatched bakers for `results`
+unmatched_results <- results_clean %>%
+  anti_join(bakers_clean, by = c("baker", "series"))
+
+print(unmatched_bakes)
+print(unmatched_results)
+```
 
 
 
