@@ -94,6 +94,23 @@ head(nyc_routes)
 ```
 
 ```{r}
+#count distinct stations that serve the A train
+a_train <- nyc_routes %>%
+  filter(route_name == "A") %>%
+  distinct(station_name, line) %>%
+  nrow()
 
+#number of distinct stations that serve the A train
+a_train
+
+#count ADA compliant stations that serve the A train
+a_ada <- nyc_routes %>%
+  filter(route_name == "A", ada == TRUE) %>%
+  distinct(station_name, line) %>%
+  nrow()
+
+#number of ADA compliant stations that serve the A train
+a_ada
 ```
+There are 60 distinct stations serve the A train and of them 17 are ADA compliant
 
