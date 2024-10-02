@@ -241,5 +241,18 @@ head(combined_wheel)
 
 The dataset combines data from three datasets: Mr. Trash Wheel, Professor Trash Wheel, and Gwynnda Trash Wheel. There are a total of `r nrow(combined_wheel)` observations. Each observation represents a specific dumpster, with key variables such as weight_tons, plastic_bottles, polystyrene, and cigarette_butts. The total weight of trash collected by Professor Trash Wheel is `r sum(subset(combined_wheel, source == "Professor Trash Wheel")$weight_tons, na.rm = TRUE)` tons. The total number of cigarette butts collected by Gwynnda Trash Wheel in June 2022 is `r sum(subset(combined_wheel, source == "Gwynnda Trash Wheel" & format(date, "%Y-%m") == "2022-06")$cigarette_butts, na.rm = TRUE)`.
 
+#Problem 3
+
+```{r}
+#import the dataset
+bakers <- read_csv("data/bakers.csv")
+bakes <- read_csv("data/bakes.csv")
+results <- read_csv("data/results.csv")
+
+#look through dataset
+head(bakers)
+head(bakes)
+head(results)
+```
 
 
