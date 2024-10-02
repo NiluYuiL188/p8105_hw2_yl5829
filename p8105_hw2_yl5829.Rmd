@@ -140,6 +140,7 @@ mr_wheel_clean <- mr_wheel %>%
     sports_balls = `Sports Balls`,
     homes_powered = `Homes Powered*`
   ) %>%
+  mutate(year = as.character(year))%>%
   #remove rows that don't contain dumpster-specific data
   filter(!is.na(dumpster)) %>%
   #round the number of sports balls to the nearest integer and convert to integer
@@ -174,6 +175,7 @@ prof_wheel_clean <- prof_wheel %>%
     wrappers = `Wrappers`,
     homes_powered = `Homes Powered*`
   ) %>%
+  mutate(year = as.character(year)) %>%
   filter(!is.na(dumpster))
 
 head(prof_wheel_clean)
@@ -208,7 +210,8 @@ gwynnda_wheel_clean <- gwynnda_wheel %>%
     wrappers = `Wrappers`,
     homes_powered = `Homes Powered*`
   ) %>%
-  # Remove rows that don't contain dumpster-specific data
+  mutate(year = as.character(year))%>%
+  #remove rows that don't contain dumpster-specific data
   filter(!is.na(dumpster))
 
 #loot at the cleaned data
@@ -226,4 +229,16 @@ mr_wheel_clean <- mr_wheel_clean %>%
   mutate(source = "Mr. Trash Wheel")
 head(mr_wheel_clean)
 ```
+
+```{r}
+#combine all datasets into one tidy dataset
+combined_wheel <- bind_rows(mr_wheel_clean, prof_wheel_clean, gwynnda_wheel_clean) %>% 
+  janitor::clean_names()
+
+#look at the combined dataset
+head(combined_wheel)
+```
+
+
+
 
