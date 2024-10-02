@@ -14,7 +14,22 @@ library(tidyverse)
 #Problem 1
 
 ```{r}
-nyc <- read_csv("data/NYC_Transit_Subway_Entrance_And_Exit_Data.csv")
-nyc
+#load the data in relative path
+nyc <- read_csv("data/NYC_Transit_Subway_Entrance_And_Exit_Data.csv", na = c(".", "NA", ""))
+head(nyc)
+```
+
+
+```{r}
+#clean the data
+nyc_clean <- nyc %>%
+  janitor::clean_names() %>%
+  select(line, station_name, station_latitude, station_longitude, 
+         route1, route2, route3, route4, route5, route6, route7, route8, route9, route10, route11, 
+         entry, vending, entrance_type, ada) %>%
+  mutate(entry = ifelse(entry == "yes", TRUE, FALSE))
+
+#look at the cleaned data
+head(nyc_clean)
 ```
 
