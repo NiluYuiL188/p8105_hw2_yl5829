@@ -123,3 +123,29 @@ mr_wheel <- read_excel("data/202409 Trash Wheel Collection Data.xlsx", sheet = "
 head(mr_wheel)
 ```
 
+```{r}
+mr_wheel_clean <- mr_wheel %>%
+  #make more reasonable names
+  rename(
+    dumpster = `Dumpster`,
+    month = `Month`,  
+    year = `Year`,    
+    date = `Date`,
+    weight_tons = `Weight (tons)`,
+    volume_cubic_yards = `Volume (cubic yards)`,
+    plastic_bottles = `Plastic Bottles`,
+    polystyrene = `Polystyrene`,
+    cigarette_butts = `Cigarette Butts`,
+    glass_bottles = `Glass Bottles`,
+    sports_balls = `Sports Balls`,
+    homes_powered = `Homes Powered*`
+  ) %>%
+  #remove rows that don't contain dumpster-specific data
+  filter(!is.na(dumpster)) %>%
+  #round the number of sports balls to the nearest integer and convert to integer
+  mutate(sports_balls = as.integer(round(sports_balls, 0)))
+
+#look at the cleaned data
+head(mr_wheel_clean)
+```
+
