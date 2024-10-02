@@ -7,6 +7,7 @@ date: "2024-10-01"
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
+library(readxl)
 ```
 
 ## R Markdown
@@ -113,4 +114,12 @@ a_ada <- nyc_routes %>%
 a_ada
 ```
 There are 60 distinct stations serve the A train and of them 17 are ADA compliant
+
+#Problem 2
+
+```{r}
+#load the mr trash wheel data in relative path
+mr_wheel <- read_excel("data/202409 Trash Wheel Collection Data.xlsx", sheet = "Mr. Trash Wheel", na = c(".", "NA", ""))
+head(mr_wheel)
+```
 
