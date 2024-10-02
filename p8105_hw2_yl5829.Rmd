@@ -386,4 +386,12 @@ In Season 6, Nadiya’s victory was anticipated, as she was named Star Baker thr
 Again season 10 seems a bit surprise as Steph win Star Baker four times but lose the final title to David.
 Season 5 is also very suprised as Richard is season 5 claim Star Baker five times almost dominant the whole season, but Nancy won the final.
 
+```{r}
+#import the viewer data
+viewers <- read_csv("data/viewers.csv")
+```
+
+```{r}
+
+```
 
