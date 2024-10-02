@@ -303,6 +303,13 @@ print(results_clean)
 ```
 
 ```{r}
+#turn series into character make sure anti_join work
+bakes_clean <- bakes_clean %>%
+  mutate(series = as.character(series))
+
+bakers_clean <- bakers_clean %>%
+  mutate(series = as.character(series))
+
 #check if unmatched bakers in `bakes`
 unmatched_bakes <- bakes_clean %>%
   anti_join(bakers_clean, by = c("baker", "series"))
@@ -314,6 +321,7 @@ unmatched_results <- results_clean %>%
 print(unmatched_bakes)
 print(unmatched_results)
 ```
+
 By checking it seems there are 8 unmatched results. However, after observation they are all from same person just that the inconsistent name conventions, jo stands for joannes (they show up in smae series and episode and has similar name short cut so we conlcude that).
 
 ```{r}
@@ -333,15 +341,15 @@ print(bakers_clean %>% filter(baker == "joanne"))
 
 ```{r}
 #check if unmatched bakers in `bakes`
-unmatched_bakes <- bakes_clean %>%
+unmatched_bakes_2 <- bakes_clean %>%
   anti_join(bakers_clean, by = c("baker", "series"))
 
 #check if unmatched bakers for `results`
-unmatched_results <- results_clean %>%
+unmatched_results_2 <- results_clean %>%
   anti_join(bakers_clean, by = c("baker", "series"))
 
-print(unmatched_bakes)
-print(unmatched_results)
+print(unmatched_bakes_2)
+print(unmatched_results_2)
 ```
 the result looks good here has no unmatched data, the datasets are complete and correct.
 
