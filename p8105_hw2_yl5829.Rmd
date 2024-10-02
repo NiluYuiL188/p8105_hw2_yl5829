@@ -254,5 +254,15 @@ head(bakers)
 head(bakes)
 head(results)
 ```
+```{r}
+#make results dataset more readable and reasonable
+results <- results %>%
+  rename(series = 1, episode = 2, baker = 3, technical = 4, result = 5) %>% 
+  slice(-1) %>%
+  filter(!is.na(series))
+head(results)
+```
+
+
 
 
