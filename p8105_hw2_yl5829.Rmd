@@ -59,15 +59,14 @@ There are 465 distinct stations.
 ```{r}
 #the number of ADA compliant stations
 ada_compliant <- nyc_clean %>%
-  filter(ada == "YES") %>%
+  filter(ada == "TRUE") %>%
   distinct(station_name, line) %>%
   nrow()
 
 #see the output
 ada_compliant
-
 ```
-There is no ADA compliant.
+There are 84 ADA compliant.
 
 ```{r}
 #proportion of station entrances / exits without vending allow entrance
