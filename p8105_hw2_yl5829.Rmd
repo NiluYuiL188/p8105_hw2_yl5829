@@ -356,4 +356,8 @@ final_dataset <- inner_join(bakers_results, bakes_clean, by = c("baker", "series
 print(final_dataset)
 ```
 
+```{r}
+write_csv(final_dataset, "data/final_baking_dataset.csv")
+```
+
 
