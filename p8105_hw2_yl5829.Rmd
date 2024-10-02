@@ -402,3 +402,17 @@ viewers_clean <- viewers %>%
 print(head(viewers_clean, 10))
 ```
 
+```{r}
+#the average viewer for Season 1
+avg_s1 <- viewers_clean %>%
+  summarise(avg = mean(series_1, na.rm = TRUE))
+
+#the average viewer for Season 5
+avg_s5 <- viewers_clean %>%
+  summarise(avg = mean(series_5, na.rm = TRUE))
+
+#look at the average viewer for Season 1 and Season 5
+print(avg_s1$avg)
+print(avg_s5$avg)
+```
+ the average viewership in Season 1 is 2.77 and 10.0393 for season 5.
