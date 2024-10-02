@@ -264,7 +264,7 @@ head(results)
 ```
 
 ```{r}
-#extract first names from Baker Name in bakers, and make data more reasonable to read
+#extract first names from Baker Name in `bakers`, and make data more reasonable to read
 bakers_clean <- bakers %>%
   separate(`Baker Name`, into = c("First Name", "Last Name"), sep = " ", extra = "merge", fill = "right") %>%
   mutate(baker = tolower(`First Name`)) %>%
@@ -292,6 +292,15 @@ bakes_clean <- bakes %>%
 print(bakes_clean)
 ```
 
+```{r}
+#clean `results` dataset
+results_clean <- results %>%
+  mutate(baker = tolower(baker),     
+         series = tolower(series),    
+         episode = as.character(episode))
+
+print(results_clean)
+```
 
 
 
