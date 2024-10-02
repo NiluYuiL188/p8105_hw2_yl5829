@@ -345,20 +345,37 @@ print(unmatched_results)
 ```
 the result looks good here has no unmatched data, the datasets are complete and correct.
 
+
 ```{r}
 #merge bakers and results on baker and series
-bakers_results <- inner_join(bakers_clean, results_clean, by = c("baker", "series"))
+bakers_results <- full_join(bakers_clean, results_clean, by = c("baker", "series"))
 
 #merge bakers with bakes on baker, series, and episode
-final_dataset <- inner_join(bakers_results, bakes_clean, by = c("baker", "series", "episode"))
+final_dataset <- full_join(bakers_results, bakes_clean, by = c("baker", "series", "episode"))
 
 #see the final dataset
 print(final_dataset)
 ```
 
+
+
 ```{r}
 write_csv(final_dataset, "data/final_baking_dataset.csv")
 ```
 
-For data cleaning process, after loading the data i found the results dataset look unreasonable as the column name were represented by numbers and first row is name of the column, so I remove the first row and change the name of the column. Next, I’ve noticed the baker in bakers dataset is formed as First Name plus Last Name, which is completely inconsistent to other dataset, so I change that by create a new column that only contains baker’s first name. and I rename all the column names to lower letters or with _ between words and I did same procedure to other two datasets. I next checked whether the datasets is matched or not and found 8 unmatched row because of the inconsistent name conventions, and I fix it by remove the conventions part and make all name consistent. Then I retest for matches and found all rows are matched. Lastly I merge all the dataset and write a csv final document. The choice I make is that I opted to correct mismatched names (like jo vs. joanne) rather than removing or excluding them, to preserve the completeness of the data.
+For data cleaning process, after loading the data i found the results dataset look unreasonable as the column name were represented by numbers and first row is name of the column, so I remove the first row and change the name of the column. Next, I’ve noticed the baker in bakers dataset is formed as First Name plus Last Name, which is completely inconsistent to other dataset, so I change that by create a new column that only contains baker’s first name. and I rename all the column names to lower letters or with _ between words and I did same procedure to other two datasets. I next checked whether the datasets is matched or not and found 8 unmatched row because of the inconsistent name conventions, and I fix it by remove the conventions part and make all name consistent. Then I retest for matches and found all rows are matched. Lastly I merge all the dataset and write a csv final document. The choice I make is that I opted to correct mismatched names (like jo vs. joanne) rather than removing or excluding them, to preserve the completeness of the data. Another one is that instead of using inner join I use full join as inner join will dismiss series 9 and 10.
 The final dataset includes all relevant details from the bakers, bakes, and results datasets. Each row contains the baker, series, episode, baker_age, baker_occupation, hometown, their signature bake, show stopper, technical score, and final result for that episode.
+
+```{r}
+#filter the final dataset for Seasons 5 through 10 and extract star bakers or winners
+star_bakers <- final_dataset %>%
+  filter(series %in% c(5, 6, 7, 8, 9, 10)) %>%
+  filter(result == "STAR BAKER" | result == "WINNER") %>%
+  select(series, episode, baker, result) %>%
+  arrange(series, episode)
+
+#see the star baker or winner table
+print(star_bakers)
+```
+
+
