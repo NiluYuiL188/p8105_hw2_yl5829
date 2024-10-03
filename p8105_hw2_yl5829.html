@@ -801,33 +801,43 @@ head(bakers)</code></pre>
 ## 4      1       1 Jasminder Fresh Mango and Passion Fruit Humming… N/A           
 ## 5      1       1 Jonathan  Carrot Cake with Lime and Cream Chees… Three Tiered …
 ## 6      1       1 Lea       Cranberry and Pistachio Cakewith Oran… Raspberries a…</code></pre>
-<pre class="r"><code>head(results)</code></pre>
-<pre><code>## # A tibble: 6 × 5
-##   ...1   ...2    ...3      ...4      IN = stayed in; OUT = Eliminated; STAR BA…¹
-##   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;                                      
-## 1 &lt;NA&gt;   &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;                                       
-## 2 series episode baker     technical result                                     
-## 3 1      1       Annetha   2         IN                                         
-## 4 1      1       David     3         IN                                         
-## 5 1      1       Edd       1         IN                                         
-## 6 1      1       Jasminder &lt;NA&gt;      IN                                         
+<pre class="r"><code>print(results)</code></pre>
+<pre><code>## # A tibble: 1,138 × 5
+##    ...1   ...2    ...3      ...4      IN = stayed in; OUT = Eliminated; STAR B…¹
+##    &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;                                     
+##  1 &lt;NA&gt;   &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;                                      
+##  2 series episode baker     technical result                                    
+##  3 1      1       Annetha   2         IN                                        
+##  4 1      1       David     3         IN                                        
+##  5 1      1       Edd       1         IN                                        
+##  6 1      1       Jasminder &lt;NA&gt;      IN                                        
+##  7 1      1       Jonathan  9         IN                                        
+##  8 1      1       Louise    &lt;NA&gt;      IN                                        
+##  9 1      1       Miranda   8         IN                                        
+## 10 1      1       Ruth      &lt;NA&gt;      IN                                        
+## # ℹ 1,128 more rows
 ## # ℹ abbreviated name:
 ## #   ¹​`IN = stayed in; OUT = Eliminated; STAR BAKER = Star Baker; WINNER = Series Winner; Runner-up = Series Runner up; WD = withdrew`</code></pre>
 <pre class="r"><code>#make results dataset more readable and reasonable
 results &lt;- results %&gt;%
-  rename(series = 1, episode = 2, baker = 3, technical = 4, result = 5) %&gt;% 
-  slice(-1) %&gt;%
+  slice(-2) %&gt;%  
+  rename(series = 1, episode = 2, baker = 3, technical = 4, result = 5) %&gt;%
   filter(!is.na(series))
-head(results)</code></pre>
-<pre><code>## # A tibble: 6 × 5
-##   series episode baker     technical result
-##   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt; 
-## 1 series episode baker     technical result
-## 2 1      1       Annetha   2         IN    
-## 3 1      1       David     3         IN    
-## 4 1      1       Edd       1         IN    
-## 5 1      1       Jasminder &lt;NA&gt;      IN    
-## 6 1      1       Jonathan  9         IN</code></pre>
+print(results)</code></pre>
+<pre><code>## # A tibble: 1,136 × 5
+##    series episode baker     technical result
+##    &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt; 
+##  1 1      1       Annetha   2         IN    
+##  2 1      1       David     3         IN    
+##  3 1      1       Edd       1         IN    
+##  4 1      1       Jasminder &lt;NA&gt;      IN    
+##  5 1      1       Jonathan  9         IN    
+##  6 1      1       Louise    &lt;NA&gt;      IN    
+##  7 1      1       Miranda   8         IN    
+##  8 1      1       Ruth      &lt;NA&gt;      IN    
+##  9 1      1       Lea       10        OUT   
+## 10 1      1       Mark      &lt;NA&gt;      OUT   
+## # ℹ 1,126 more rows</code></pre>
 <pre class="r"><code>#extract first names from Baker Name in `bakers`, and make data more reasonable to read
 bakers_clean &lt;- bakers %&gt;%
   separate(`Baker Name`, into = c(&quot;First Name&quot;, &quot;Last Name&quot;), sep = &quot; &quot;, extra = &quot;merge&quot;, fill = &quot;right&quot;) %&gt;%
@@ -886,20 +896,20 @@ results_clean &lt;- results %&gt;%
          episode = as.character(episode))
 
 print(results_clean)</code></pre>
-<pre><code>## # A tibble: 1,137 × 5
+<pre><code>## # A tibble: 1,136 × 5
 ##    series episode baker     technical result
 ##    &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt; 
-##  1 series episode baker     technical result
-##  2 1      1       annetha   2         IN    
-##  3 1      1       david     3         IN    
-##  4 1      1       edd       1         IN    
-##  5 1      1       jasminder &lt;NA&gt;      IN    
-##  6 1      1       jonathan  9         IN    
-##  7 1      1       louise    &lt;NA&gt;      IN    
-##  8 1      1       miranda   8         IN    
-##  9 1      1       ruth      &lt;NA&gt;      IN    
-## 10 1      1       lea       10        OUT   
-## # ℹ 1,127 more rows</code></pre>
+##  1 1      1       annetha   2         IN    
+##  2 1      1       david     3         IN    
+##  3 1      1       edd       1         IN    
+##  4 1      1       jasminder &lt;NA&gt;      IN    
+##  5 1      1       jonathan  9         IN    
+##  6 1      1       louise    &lt;NA&gt;      IN    
+##  7 1      1       miranda   8         IN    
+##  8 1      1       ruth      &lt;NA&gt;      IN    
+##  9 1      1       lea       10        OUT   
+## 10 1      1       mark      &lt;NA&gt;      OUT   
+## # ℹ 1,126 more rows</code></pre>
 <pre class="r"><code>#turn series into character make sure anti_join work
 bakes_clean &lt;- bakes_clean %&gt;%
   mutate(series = as.character(series))
@@ -928,18 +938,17 @@ print(unmatched_bakes)</code></pre>
 ## 7 2      7       &quot;\&quot;jo\&quot;&quot; Raspberry &amp; Strawberry Mousse Cake        Pain Aux Ra…
 ## 8 2      8       &quot;\&quot;jo\&quot;&quot; Raspberry and Blueberry Mille Feuille     Mini Victor…</code></pre>
 <pre class="r"><code>print(unmatched_results)</code></pre>
-<pre><code>## # A tibble: 9 × 5
+<pre><code>## # A tibble: 8 × 5
 ##   series episode baker  technical result    
 ##   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;     
-## 1 series episode baker  technical result    
-## 2 2      1       joanne 11        IN        
-## 3 2      2       joanne 10        IN        
-## 4 2      3       joanne 1         IN        
-## 5 2      4       joanne 8         IN        
-## 6 2      5       joanne 6         IN        
-## 7 2      6       joanne 1         STAR BAKER
-## 8 2      7       joanne 3         IN        
-## 9 2      8       joanne 1         WINNER</code></pre>
+## 1 2      1       joanne 11        IN        
+## 2 2      2       joanne 10        IN        
+## 3 2      3       joanne 1         IN        
+## 4 2      4       joanne 8         IN        
+## 5 2      5       joanne 6         IN        
+## 6 2      6       joanne 1         STAR BAKER
+## 7 2      7       joanne 3         IN        
+## 8 2      8       joanne 1         WINNER</code></pre>
 <p>By checking it seems there are 8 unmatched results. However, after
 observation they are all from same person just that the inconsistent
 name conventions, jo stands for joannes (they show up in smae series and
@@ -979,10 +988,9 @@ print(unmatched_bakes_2)</code></pre>
 ## 7 2      7       jo    Raspberry &amp; Strawberry Mousse Cake           Pain Aux Ra…
 ## 8 2      8       jo    Raspberry and Blueberry Mille Feuille        Mini Victor…</code></pre>
 <pre class="r"><code>print(unmatched_results_2)</code></pre>
-<pre><code>## # A tibble: 1 × 5
-##   series episode baker technical result
-##   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; 
-## 1 series episode baker technical result</code></pre>
+<pre><code>## # A tibble: 0 × 5
+## # ℹ 5 variables: series &lt;chr&gt;, episode &lt;chr&gt;, baker &lt;chr&gt;, technical &lt;chr&gt;,
+## #   result &lt;chr&gt;</code></pre>
 <p>the result looks good here has no unmatched data, the datasets are
 complete and correct.</p>
 <pre class="r"><code>#merge bakers and results on baker and series
@@ -993,7 +1001,7 @@ final_dataset &lt;- full_join(bakers_results, bakes_clean, by = c(&quot;baker&qu
 
 #see the final dataset
 print(final_dataset)</code></pre>
-<pre><code>## # A tibble: 1,145 × 10
+<pre><code>## # A tibble: 1,144 × 10
 ##    baker series baker_age baker_occupation hometown     episode technical result
 ##    &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt; 
 ##  1 ali   4             25 Charity worker   Saltley, Bi… 1       11        IN    
@@ -1006,7 +1014,7 @@ print(final_dataset)</code></pre>
 ##  8 ali   4             25 Charity worker   Saltley, Bi… 8       &lt;NA&gt;      &lt;NA&gt;  
 ##  9 ali   4             25 Charity worker   Saltley, Bi… 9       &lt;NA&gt;      &lt;NA&gt;  
 ## 10 ali   4             25 Charity worker   Saltley, Bi… 10      &lt;NA&gt;      &lt;NA&gt;  
-## # ℹ 1,135 more rows
+## # ℹ 1,134 more rows
 ## # ℹ 2 more variables: signature_bake &lt;chr&gt;, show_stopper &lt;chr&gt;</code></pre>
 <pre class="r"><code>write_csv(final_dataset, &quot;data/final_baking_dataset.csv&quot;)</code></pre>
 <p>For data cleaning process, after loading the data i found the results

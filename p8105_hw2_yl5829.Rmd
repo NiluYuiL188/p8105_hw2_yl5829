@@ -252,15 +252,15 @@ results <- read_csv("data/results.csv")
 #look through dataset
 head(bakers)
 head(bakes)
-head(results)
+print(results)
 ```
 ```{r}
 #make results dataset more readable and reasonable
 results <- results %>%
-  rename(series = 1, episode = 2, baker = 3, technical = 4, result = 5) %>% 
-  slice(-1) %>%
+  slice(-2) %>%  
+  rename(series = 1, episode = 2, baker = 3, technical = 4, result = 5) %>%
   filter(!is.na(series))
-head(results)
+print(results)
 ```
 
 ```{r}
