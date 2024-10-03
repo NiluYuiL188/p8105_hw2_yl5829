@@ -327,14 +327,18 @@ By checking it seems there are 8 unmatched results. However, after observation t
 ```{r}
 #remove any extra quote mark in the `baker` 
 bakes_clean <- bakes_clean %>%
-  mutate(baker = gsub('"', '', baker))  # Remove double quotes
+  mutate(baker = gsub('"', '', baker)) 
 
-#replace jo with joanne in bakers_clean
 bakers_clean <- bakers_clean %>%
-  mutate(baker = ifelse(baker == "jo", "joanne", baker))
+  mutate(baker = gsub('"', '', baker))
 
-#check if the replacement work
-print(bakers_clean %>% filter(baker == "joanne"))
+# Correct the baker's name from Joanne to Jo
+results_clean <- results_clean %>%
+  mutate(baker = ifelse(series == "2" & baker == "joanne", "jo", baker))
+
+# Do the same for bakes_clean
+bakes_clean <- bakes_clean %>%
+  mutate(baker = ifelse(series == "2" & baker == "joanne", "jo", baker))
 
 ```
 
@@ -352,7 +356,6 @@ print(unmatched_bakes_2)
 print(unmatched_results_2)
 ```
 the result looks good here has no unmatched data, the datasets are complete and correct.
-
 
 ```{r}
 #merge bakers and results on baker and series
